@@ -7,5 +7,7 @@ version          "0.0.1"
 
 depends "build-essential"
 
-supports "ubuntu", ">= 10.04"
-supports "centos", ">= 6.0"
+%w{ ubuntu centos debian }.each do |os|
+  supports os
+end
+
