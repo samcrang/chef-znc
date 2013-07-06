@@ -5,7 +5,9 @@ description      "Installs/Configures ZNC IRC bouncer"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          "0.0.1"
 
-depends "build-essential"
+%w{ build-essential firewall }.each do |cookbook|
+  depends cookbook
+end
 
 %w{ ubuntu centos debian }.each do |os|
   supports os
