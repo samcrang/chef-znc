@@ -54,7 +54,7 @@ template "/etc/init.d/znc" do
   mode "0755"
 end
 
-users = search(:users, 'groups:znc')
+users = Chef::EncryptedDataBagItem.load("users", "sam")["znc"] 
 
 # znc doesn't like to be automated...this prevents a race condition
 # http://wiki.znc.in/Configuration#Editing_config
