@@ -42,12 +42,13 @@ LoadModule   = <%= "#{mod} #{params}".strip  %>
 	JoinTries = 10
 	MaxJoins = 5
 	IRCConnectEnabled = true
+	BindHost = <%= node['ipaddress'] %>
 
 	Allow = *
 
-  <% u['znc']['modules'].each do |mod,params| -%>
+	<% u['znc']['modules'].each do |mod,params| -%>
 	LoadModule = <%= "#{mod} #{params}".strip  %>
-  <% end -%>
+	<% end -%>
 
 	Server = <%= u['znc']['server'] %>
 <% u['znc']['channels'].each do |chan,options| -%>
